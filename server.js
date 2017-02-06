@@ -78,6 +78,10 @@ function createTemplate(data){
 	return html_template;
 }
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
 var counter = 0;
 app.get('/counter', function(req, res){
    counter = counter + 1;
@@ -87,10 +91,6 @@ app.get('/counter', function(req, res){
 app.get('/:articleName', function(req, res){  // :articleName look for the names from req and expand it.
 	var articleName = req.params.articleName;
    	res.send(createTemplate(articles[articleName]));
-});
-
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/ui/style.css', function (req, res) {
