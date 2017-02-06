@@ -43,7 +43,7 @@ var articles = {
 	        </p>
 		`
 	}
-}
+};
 function createTemplate(data){
 	var title = data.title;
 	var head = data.heading;
